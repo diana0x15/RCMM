@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import data from "./data.json";
+import jsonData from "./data.json";
 import { Profile } from "./components/Profile";
+import useData from "./hooks/useData";
 
 function App() {
-  useEffect(() => {
-    console.log(data);
-  }, []);
+  const [getData, data, error] = useData();
+
+  if (error) {
+    return <>No data :(</>;
+  }
 
   return <Profile />;
 }
