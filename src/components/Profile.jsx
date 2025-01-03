@@ -1,33 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Profile.css";
 import Suspiciuni from "./Suspiciuni";
-import { useScroll, useMotionValueEvent } from "motion/react";
+import { BASE_URL } from "../api/data";
+import { getAge } from "../utils/utils";
 
 // Some extra bottom padding is necessary on mobile.
 const BOTTOM_PADDING = 100;
 // Image can shrink up to 60% of its height.
 const MIN_IMG_SCALE = 0.6;
 
-const DetailsCard = () => {
+const DetailsCard = ({ profileInfo }) => {
   return (
     <div id="card" className="card">
       <div id="details" className="details">
-        <h1 className="name">Marcel Ciolacu</h1>
+        <h1 className="name">
+          {profileInfo.prenume} {profileInfo.nume}
+        </h1>
         <div className="section">
           <div className="subsection">
             <label className="top-line">Funcția actuală</label>
-            <label className="bottom-line">Prim-ministrul României</label>
+            <label className="bottom-line">{profileInfo.titlu}</label>
           </div>
         </div>
         <div className="section">
           <div className="subsection">
             <label className="top-line">Localitate</label>
-            <label className="bottom-line">Buzău</label>
+            <label className="bottom-line">{profileInfo.localitate}</label>
           </div>
 
           <div className="subsection">
             <label className="top-line">Vârstă</label>
-            <label className="bottom-line">62</label>
+            <label className="bottom-line">
+              {getAge(profileInfo.data_nasterii)}
+            </label>
           </div>
         </div>
 
@@ -42,14 +47,25 @@ const DetailsCard = () => {
   );
 };
 
-export function Profile() {
+/**
+ * The Profile component.
+ */
+export function Profile({ profileInfo }) {
   let mobileScreenMediaQuery = window.matchMedia("(max-width: 768px)");
-  let isMobile = mobileScreenMediaQuery.matches;
+  let [isMobile, setIsMobile] = useState(mobileScreenMediaQuery.matches);
   let isScrollingInitialized = false;
 
   let initialImgHeight = -1;
   let isScrollingCard = false;
   let initialCardScrollY = -1;
+
+  function getImageUrl() {
+    const imageUrl = isMobile
+      ? profileInfo.avatar_orizontal.url
+      : profileInfo.avatar_vertical.url;
+
+    return BASE_URL + imageUrl;
+  }
 
   function resetStyling() {
     isScrollingInitialized = false;
@@ -61,12 +77,12 @@ export function Profile() {
 
   addEventListener("resize", (event) => {
     if (!isMobile && mobileScreenMediaQuery.matches) {
-      isMobile = true;
+      setIsMobile(true);
       resetStyling();
     }
 
     if (isMobile && !mobileScreenMediaQuery.matches) {
-      isMobile = false;
+      setIsMobile(false);
       resetStyling();
       window.scrollTo(0, 0);
     }
@@ -123,10 +139,16 @@ export function Profile() {
   return (
     <>
       <div className="container">
-        <div id="image" className="image">
+        <div
+          id="image"
+          className="image"
+          style={{
+            "--image-url": `url(${getImageUrl()})`,
+          }}
+        >
           <div className="gradient" />
         </div>
-        <DetailsCard />
+        <DetailsCard profileInfo={profileInfo} />
 
         {/* Used only on mobile. */}
         <div id="scrollable" className="scrollable"></div>

@@ -1,5 +1,10 @@
 @import "../defs.css";
 
+:root {
+  /* Dynamically set in JS. */
+  --image-url: "";
+}
+
 /* Desktop (Landscape) */
 @media (min-width: 768px) {
   .scrollable {
@@ -22,7 +27,9 @@
   }
 
   .image {
-    background: url("/src/assets/ciolacu_tall.jpg") center center no-repeat;
+    background-image: var(--image-url);
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     margin-right: -20px;
     max-width: 900px;
@@ -52,7 +59,9 @@
 /* Mobile (Portrait) */
 @media (max-width: 768px) {
   .image {
-    background: url("/src/assets/ciolacu.jpeg") center center no-repeat;
+    background-image: var(--image-url);
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     width: 100%;
     height: 50%;
