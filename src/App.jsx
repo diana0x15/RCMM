@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import "./App.css";
 import { Profile } from "./components/Profile";
 import useData from "./hooks/useData";
@@ -10,9 +9,9 @@ function App() {
     return null;
   }
 
-  const ciolacu = data[0];
+  const politician = data[1];
 
-  return <Profile profileInfo={ciolacu} />;
+  return <Profile profileInfo={politician} />;
 }
 
 export default App;

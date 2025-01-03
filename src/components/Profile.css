@@ -3,6 +3,7 @@
 :root {
   /* Dynamically set in JS. */
   --image-url: "";
+  --color-value: "";
 }
 
 /* Desktop (Landscape) */
@@ -108,7 +109,11 @@
   height: 60%;
   opacity: 0.6;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #dc2c23 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(217, 217, 217, 0) 0%,
+    var(--color-value) 100%
+  );
 }
 
 .section {

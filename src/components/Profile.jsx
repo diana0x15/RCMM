@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Profile.css";
 import Suspiciuni from "./Suspiciuni";
-import { BASE_URL } from "../api/data";
+import { DEBUG_BASE_URL as BASE_URL } from "../api/data";
 import { getAge } from "../utils/utils";
 
 // Some extra bottom padding is necessary on mobile.
@@ -138,14 +138,14 @@ export function Profile({ profileInfo }) {
 
   return (
     <>
-      <div className="container">
-        <div
-          id="image"
-          className="image"
-          style={{
-            "--image-url": `url(${getImageUrl()})`,
-          }}
-        >
+      <div
+        className="container"
+        style={{
+          "--image-url": `url(${getImageUrl()})`,
+          "--color-value": `${profileInfo.partid_politic.culoare}`,
+        }}
+      >
+        <div id="image" className="image">
           <div className="gradient" />
         </div>
         <DetailsCard profileInfo={profileInfo} />
