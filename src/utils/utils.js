@@ -8,3 +8,9 @@ export function getAge(dateString) {
   }
   return age;
 }
+
+export function createRouteFromName(politician) {
+  return (
+    "/" + politician.prenume.toLowerCase() + "-" + politician.nume.toLowerCase()
+  );
+}

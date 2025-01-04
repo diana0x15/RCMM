@@ -9,3 +9,7 @@ body,
   font-family: "Inter", serif;
   color: var(--text-color);
 }
+
+:root {
+  --text-color: #a6a6a6;
+}

@@ -1,5 +1,3 @@
-@import "../defs.css";
-
 :root {
   /* Dynamically set in JS. */
   --image-url: "";

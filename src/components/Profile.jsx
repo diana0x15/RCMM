@@ -50,7 +50,7 @@ const DetailsCard = ({ profileInfo }) => {
 /**
  * The Profile component.
  */
-export function Profile({ profileInfo }) {
+export default function Profile({ profileInfo }) {
   let mobileScreenMediaQuery = window.matchMedia("(max-width: 768px)");
   let [isMobile, setIsMobile] = useState(mobileScreenMediaQuery.matches);
   let isScrollingInitialized = false;
