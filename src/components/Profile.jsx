@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Profile.css";
 import Suspiciuni from "./Suspiciuni";
-import { DEBUG_BASE_URL as BASE_URL } from "../api/data";
+import { PROD_BASE_URL as BASE_URL } from "../api/data";
 import { getAge } from "../utils/utils";
 
 // Some extra bottom padding is necessary on mobile.
