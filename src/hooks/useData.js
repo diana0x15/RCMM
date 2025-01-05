@@ -12,7 +12,7 @@ export default () => {
   const getData = async () => {
     try {
       setError(false);
-      const response = await dataAPI.get("/politicieni");
+      const response = await dataAPI.get("/politicieni?populate=*");
       setData(response.data.data);
     } catch (err) {
       setError(true);
