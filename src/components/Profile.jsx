@@ -75,6 +75,7 @@ export default function Profile({ profileInfo }) {
     document.getElementById("scrollable").style.height = "";
   }
 
+  // TODO: Remove event listener when component is closed.
   addEventListener("resize", (event) => {
     if (!isMobile && mobileScreenMediaQuery.matches) {
       setIsMobile(true);

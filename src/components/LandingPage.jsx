@@ -8,7 +8,7 @@ import Icon from "./Icon";
 
 const LandingPage = ({ data }) => {
   return (
-    <div className="container">
+    <div className="landingPage">
       <Icon />
 
       <h1 className="title">Cine Reprezintă România?</h1>
