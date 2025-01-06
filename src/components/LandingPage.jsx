@@ -1,20 +1,23 @@
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
 import { createRouteFromName } from "../utils/utils";
+import { FaSearch } from "react-icons/fa";
+import { Input } from "@mui/material";
+import Search from "./Search";
+import Icon from "./Icon";
 
 const LandingPage = ({ data }) => {
-  console.log(data);
-
   return (
-    <>
-      <div>Cine Reprezinta Romania?</div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "fit-content",
-        }}
-      >
+    <div className="container">
+      <Icon />
+
+      <h1 className="title">Cine Reprezintă România?</h1>
+      <div className="searchWrapper">
+        <Search />
+      </div>
+      <h2 className="subtitle">Informează-te înainte să votezi!</h2>
+
+      <div className="items">
         {data.map((politician) => {
           return (
             <Link
@@ -26,7 +29,7 @@ const LandingPage = ({ data }) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
