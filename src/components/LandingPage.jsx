@@ -1,8 +1,6 @@
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
 import { createRouteFromName } from "../utils/utils";
-import { FaSearch } from "react-icons/fa";
-import { Input } from "@mui/material";
 import Search from "./Search";
 import Icon from "./Icon";
 

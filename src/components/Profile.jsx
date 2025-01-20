@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Profile.css";
 import Suspiciuni from "./Suspiciuni";
-import { PROD_BASE_URL as BASE_URL } from "../api/data";
 import { getAge } from "../utils/utils";
 
 // Some extra bottom padding is necessary on mobile.
@@ -64,7 +63,7 @@ export default function Profile({ profileInfo }) {
       ? profileInfo.avatar_orizontal.url
       : profileInfo.avatar_vertical.url;
 
-    return BASE_URL + imageUrl;
+    return imageUrl;
   }
 
   function resetStyling() {
