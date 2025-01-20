@@ -2,7 +2,7 @@ import "./App.css";
 import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
 import useData from "./hooks/useData";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { createRouteFromName } from "./utils/utils";
 
 function App() {
