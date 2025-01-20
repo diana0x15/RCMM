@@ -38,7 +38,7 @@ const DetailsCard = ({ profileInfo }) => {
         <div className="section">
           <div className="subsection">
             <label className="top-line">Suspiciuni</label>
-            <Suspiciuni />
+            <Suspiciuni color={profileInfo.partid_politic.culoare} />
           </div>
         </div>
       </div>

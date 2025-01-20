@@ -1,51 +1,56 @@
 import React from "react";
 import "./Suspiciuni.css";
-import penal from "../assets/badges/penal.svg";
-import securitate from "../assets/badges/securitate.svg";
-import coruptie from "../assets/badges/coruptie.svg";
-import anti_avort from "../assets/badges/anti_avort.svg";
-import anti_egalitate from "../assets/badges/anti_egalitate.svg";
-import anti_ue from "../assets/badges/anti_ue.svg";
-import educatie from "../assets/badges/educatie.svg";
-import religie from "../assets/badges/religie.svg";
-import penal_red from "../assets/badges_red/penal.svg";
-import securitate_red from "../assets/badges_red/securitate.svg";
-import coruptie_red from "../assets/badges_red/coruptie.svg";
-import anti_avort_red from "../assets/badges_red/anti_avort.svg";
-import anti_egalitate_red from "../assets/badges_red/anti_egalitate.svg";
-import educatie_red from "../assets/badges_red/educatie.svg";
-import anti_ue_red from "../assets/badges_red/anti_ue.svg";
-import religie_red from "../assets/badges_red/religie.svg";
+import Religie from "./suspiciuni/Religie";
+import AntiAvort from "./suspiciuni/AntiAvort";
+import AntiEgalitate from "./suspiciuni/AntiEgalitate";
+import AntiUE from "./suspiciuni/AntiUE";
+import Coruptie from "./suspiciuni/Coruptie";
+import Educatie from "./suspiciuni/Educatie";
+import Penal from "./suspiciuni/Penal";
+import Securitate from "./suspiciuni/Securitate";
 
-function Suspiciuni() {
+function Suspiciuni({ color }) {
+  const defaultColor = "#A6A6A6";
+
   return (
     <div className="grid">
       <Card
-        image={securitate_red}
+        icon={<Securitate color={color} />}
         title="Legături cu securitatea"
-        isRed={true}
+        color
       />
-      <Card image={penal_red} title="Cercetat penal" isRed={true} />
-      <Card image={coruptie_red} title="Corupție și mită" isRed={true} />
+      <Card icon={<Penal color={color} />} title="Cercetat penal" color />
+      <Card icon={<Coruptie color={color} />} title="Corupție și mită" color />
       <Card
-        image={educatie_red}
-        title="Educație
-îndoielnică"
-        isRed={true}
+        icon={<Educatie color={color} />}
+        title="Educație îndoielnică"
+        color
       />
-      <Card image={anti_ue} title="Anti Europa" />
-      <Card image={anti_egalitate_red} title="Anti egalitate" isRed={true} />
-      <Card image={anti_avort} title="Anti avort" />
-      <Card image={religie_red} title="Ultra religios" isRed={true} />
+      <Card
+        icon={<AntiUE color={defaultColor} />}
+        title="Anti Europa"
+        color={defaultColor}
+      />
+      <Card
+        icon={<AntiEgalitate color={color} />}
+        title="Anti egalitate"
+        color
+      />
+      <Card
+        icon={<AntiAvort color={defaultColor} />}
+        title="Anti avort"
+        color={defaultColor}
+      />
+      <Card icon={<Religie color={color} />} title="Ultra religios" color />
     </div>
   );
 }
 
-function Card({ title, image, isRed }) {
+function Card({ title, icon, color }) {
   return (
     <div className="item">
-      <img src={image} />
-      <span className={isRed ? "isRed" : ""}>{title}</span>
+      {icon}
+      <span style={{ color: color }}>{title}</span>
     </div>
   );
 }
