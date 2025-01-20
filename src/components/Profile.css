@@ -22,7 +22,6 @@
   .card,
   .image {
     position: relative;
-    width: 50%;
   }
 
   .image {
@@ -30,14 +29,15 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    margin-right: -20px;
-    max-width: 900px;
+    margin-right: -2%;
+    width: 52%;
   }
 
   .card {
     overflow-x: scroll;
-    border-radius: 20px;
+    border-radius: 25px 0 0 25px;
     background-color: white;
+    width: 50%;
     display: flex;
     justify-content: center;
     padding-top: 12em;
