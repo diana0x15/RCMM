@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Profile.css";
 import Suspiciuni from "../components/Suspiciuni";
 import { getAge } from "../utils/utils";
@@ -49,7 +49,6 @@ const DetailsCard = ({ profileInfo }) => {
 /**
  * The Profile component.
  */
-// TODO: Reset scroll position when the profile page is opened.
 export default function Profile({ profileInfo }) {
   let mobileScreenMediaQuery = window.matchMedia("(max-width: 768px)");
   let [isMobile, setIsMobile] = useState(mobileScreenMediaQuery.matches);
@@ -59,37 +58,36 @@ export default function Profile({ profileInfo }) {
   let isScrollingCard = false;
   let initialCardScrollY = -1;
 
-  function getImageUrl() {
+  const getImageUrl = () => {
     const imageUrl = isMobile
       ? profileInfo.avatar_orizontal.url
       : profileInfo.avatar_vertical.url;
 
     return imageUrl;
-  }
+  };
 
-  function resetStyling() {
+  // Initialize the size of the scrollable element based on image height.
+  const initScrolling = () => {
+    isScrollingInitialized = true;
+
+    const imageElement = document.getElementById("image");
+    const cardElement = document.getElementById("card");
+    const scrollableElement = document.getElementById("scrollable");
+    // Compute initial height of the image and the total scrolling height.
+    initialImgHeight = imageElement.offsetHeight;
+    const scrollHeight = imageElement.offsetHeight + cardElement.offsetHeight;
+    scrollableElement.style.height = `${scrollHeight + BOTTOM_PADDING}px`;
+  };
+
+  const resetStyling = () => {
     isScrollingInitialized = false;
     document.getElementById("image").style.height = "";
     document.getElementById("card").style.top = "";
     document.getElementById("details").style.marginTop = "";
     document.getElementById("scrollable").style.height = "";
-  }
+  };
 
-  // TODO: Remove event listener when component is closed.
-  addEventListener("resize", (event) => {
-    if (!isMobile && mobileScreenMediaQuery.matches) {
-      setIsMobile(true);
-      resetStyling();
-    }
-
-    if (isMobile && !mobileScreenMediaQuery.matches) {
-      setIsMobile(false);
-      resetStyling();
-      window.scrollTo(0, 0);
-    }
-  });
-
-  window.addEventListener("scroll", () => {
+  const handleScroll = () => {
     if (!mobileScreenMediaQuery.matches) {
       // Allow scrolling only on mobile.
       return;
@@ -123,19 +121,32 @@ export default function Profile({ profileInfo }) {
 
     document.getElementById("image").style.height = `${newImgHeight}px`;
     document.getElementById("card").style.top = `${newImgHeight}px`;
-  });
+  };
 
-  function initScrolling() {
-    isScrollingInitialized = true;
+  const handleResize = () => {
+    if (!isMobile && mobileScreenMediaQuery.matches) {
+      setIsMobile(true);
+      resetStyling();
+    }
 
-    const imageElement = document.getElementById("image");
-    const cardElement = document.getElementById("card");
-    const scrollableElement = document.getElementById("scrollable");
-    // Compute initial height of the image and the total scrolling height.
-    initialImgHeight = imageElement.offsetHeight;
-    const scrollHeight = imageElement.offsetHeight + cardElement.offsetHeight;
-    scrollableElement.style.height = `${scrollHeight + BOTTOM_PADDING}px`;
-  }
+    if (isMobile && !mobileScreenMediaQuery.matches) {
+      setIsMobile(false);
+      resetStyling();
+      window.scrollTo(0, 0);
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
