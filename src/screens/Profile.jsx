@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Profile.css";
-import Suspiciuni from "./Suspiciuni";
+import Suspiciuni from "../components/Suspiciuni";
 import { getAge } from "../utils/utils";
 
 // Some extra bottom padding is necessary on mobile.

@@ -1,13 +1,13 @@
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
 import { createRouteFromName } from "../utils/utils";
-import Search from "./Search";
-import Icon from "./Icon";
+import Search from "../components/Search";
+import Logo from "../components/Logo";
 
 const LandingPage = ({ data }) => {
   return (
     <div className="landingPage">
-      <Icon />
+      <Logo />
 
       <h1 className="title">Cine Reprezintă România?</h1>
       <div className="searchWrapper">
