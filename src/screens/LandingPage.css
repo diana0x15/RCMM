@@ -17,12 +17,23 @@
   text-align: center;
 }
 
-.items {
+.politicieni {
   display: flex;
   flex-direction: column;
   width: fit-content;
   margin-top: 60px;
   gap: 20px;
+}
+
+.partide {
+  margin-top: 60px;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 20px;
+  align-items: center;
+  height: 200px;
+  overflow-y: scroll;
+  width: 90%;
 }
 
 /* Desktop (Landscape) */

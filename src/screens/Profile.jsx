@@ -49,6 +49,7 @@ const DetailsCard = ({ profileInfo }) => {
 /**
  * The Profile component.
  */
+// TODO: Reset scroll position when the profile page is opened.
 export default function Profile({ profileInfo }) {
   let mobileScreenMediaQuery = window.matchMedia("(max-width: 768px)");
   let [isMobile, setIsMobile] = useState(mobileScreenMediaQuery.matches);
