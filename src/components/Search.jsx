@@ -8,7 +8,7 @@ export default function Search() {
     <OutlinedInput
       size="small"
       id="search"
-      placeholder="Search…"
+      placeholder="Caută-ți candidatul…"
       sx={{ backgroundColor: "black", color: "white", width: "100%" }}
       startAdornment={
         <InputAdornment position="start" sx={{ color: "white" }}>

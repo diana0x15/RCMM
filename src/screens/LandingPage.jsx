@@ -6,6 +6,7 @@ import Logo from "../components/Logo";
 import PartyCard from "../components/PartyCard";
 import PoliticianCard from "../components/PoliticianCard";
 import { useState } from "react";
+import { orange } from "@mui/material/colors";
 
 const LandingPage = ({ politicieni, partidePolitice }) => {
   let [selectedParty, setSelectedParty] = useState(null);
@@ -21,20 +22,26 @@ const LandingPage = ({ politicieni, partidePolitice }) => {
     if (politiciansToShow.length) {
       return null;
     }
-    return <div>0 rezultate</div>;
+    return (
+      <div className="politicienicount">
+        {politiciansToShow.length} rezultate.
+      </div>
+    );
   }
 
   return (
     <div className="landingPage">
       <Logo />
 
-      <h1 className="title">Cine Reprezintă România?</h1>
-      <div className="searchWrapper">
-        <Search />
+      <div className="titlegroup">
+        <h1 className="title">Cine Reprezintă România?</h1>
+        <div className="searchWrapper">
+          <Search />
+        </div>
+        <h2 className="subtitle">Informează-te înainte să votezi!</h2>
       </div>
-      <h2 className="subtitle">Informează-te înainte să votezi!</h2>
 
-      <div className="partide">
+      <div id="partide" className="partide">
         {partidePolitice.map((partid) => {
           return (
             <PartyCard
@@ -48,6 +55,9 @@ const LandingPage = ({ politicieni, partidePolitice }) => {
                 } else {
                   setSelectedParty(partid);
                 }
+                document
+                  .getElementById("partide")
+                  .scrollIntoView({ behavior: "smooth" });
               }}
             />
           );

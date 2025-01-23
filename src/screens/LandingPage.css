@@ -1,13 +1,25 @@
 .landingPage {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  padding-top: 30vh;
+  align-items: center;
+  width: 100%;
   padding-bottom: 10vh;
 }
 
+.fullscreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titlegroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .title {
-  font-size: 50px;
   font-weight: bold;
   text-align: center;
 }
@@ -18,46 +30,74 @@
   text-align: center;
 }
 
-.politicieni {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(max(5em, 9em), 1fr));
-  margin-top: 80px;
-  gap: 40px;
-}
-
 .partide::-webkit-scrollbar {
   display: none;
 }
 
 .partide {
-  margin-top: 60px;
   display: grid;
   grid-auto-flow: column;
   gap: 20px;
   align-items: center;
   height: 200px;
   overflow-y: scroll;
-  padding-inline: 10px;
+  padding: 20px;
+}
+
+.politicieni {
+  display: grid;
+  gap: 40px;
+  width: 80%;
+  font-size: 1.2em;
+}
+
+.politicienicount {
+  height: max-content;
+  display: flex;
+  justify-content: center;
 }
 
 /* Desktop (Landscape) */
 @media (min-width: 768px) {
+  .titlegroup {
+    height: 30vh;
+    margin-top: 30vh;
+    margin-bottom: 15vh;
+  }
+
+  .title {
+    font-size: 4.75rem;
+  }
+
+  .subtitle {
+    font-size: 2.25rem;
+  }
+
   .searchWrapper {
     width: 30%;
     min-width: 450px;
   }
 
-  .partide {
-    width: 60%;
-  }
-
   .politicieni {
-    width: 60%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
 /* Mobile (Portrait) */
 @media (max-width: 768px) {
+  .titlegroup {
+    margin-top: 12vh;
+    margin-bottom: 3vh;
+  }
+
+  .title {
+    font-size: 2.75rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
   .searchWrapper {
     width: 80%;
     max-width: 450px;
@@ -66,6 +106,10 @@
   .partide {
     width: 90%;
     height: 150px;
+  }
+
+  .politicieni {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 }
 
