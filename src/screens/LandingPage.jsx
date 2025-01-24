@@ -6,7 +6,7 @@ import Logo from "../components/Logo";
 import PartyCard from "../components/PartyCard";
 import PoliticianCard from "../components/PoliticianCard";
 import { useState } from "react";
-import { orange } from "@mui/material/colors";
+import SegmentedControl from "../components/SegmentedControl";
 
 const LandingPage = ({ politicieni, partidePolitice }) => {
   let [selectedParty, setSelectedParty] = useState(null);
@@ -63,6 +63,8 @@ const LandingPage = ({ politicieni, partidePolitice }) => {
           );
         })}
       </div>
+
+      <SegmentedControl />
 
       <div className="politicieni">
         {maybeRenderEmptyList()}
