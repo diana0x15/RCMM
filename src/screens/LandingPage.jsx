@@ -7,6 +7,7 @@ import PartyCard from "../components/PartyCard";
 import PoliticianCard from "../components/PoliticianCard";
 import { useState } from "react";
 import SegmentedControl from "../components/SegmentedControl";
+import DonateButton from "../components/DonateButton";
 
 const LandingPage = ({ politicieni, partidePolitice }) => {
   let [selectedParty, setSelectedParty] = useState(null);
@@ -31,7 +32,14 @@ const LandingPage = ({ politicieni, partidePolitice }) => {
 
   return (
     <div className="landingPage">
-      <Logo />
+      <div className="banner">
+        <div className="logoWrapper">
+          <Logo />
+        </div>
+        <div className="donateButtonWrapper">
+          <DonateButton />
+        </div>
+      </div>
 
       <div className="titlegroup">
         <h1 className="title">Cine Reprezintă România?</h1>

@@ -6,6 +6,21 @@
   padding-bottom: 10vh;
 }
 
+.banner {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.banner .logoWrapper {
+  margin-left: 20px;
+  margin-right: auto;
+}
+.banner .donateButtonWrapper {
+  margin-right: 20px;
+}
+
 .fullscreen {
   display: flex;
   flex-direction: column;
@@ -64,7 +79,7 @@
 @media (min-width: 768px) {
   .titlegroup {
     height: 30vh;
-    margin-top: 30vh;
+    margin-top: 20vh;
     margin-bottom: 15vh;
   }
 
