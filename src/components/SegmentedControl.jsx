@@ -3,7 +3,10 @@ import Tabs from "@mui/joy/Tabs";
 import TabList from "@mui/joy/TabList";
 import Tab, { tabClasses } from "@mui/joy/Tab";
 
-export default function SegmentedControl() {
+export default function SegmentedControl({ selectedParty }) {
+  if (!selectedParty) {
+    return null;
+  }
   return (
     <Tabs sx={{ bgcolor: "transparent" }} aria-label="tabs" defaultValue={0}>
       <TabList

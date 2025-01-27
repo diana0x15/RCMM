@@ -72,7 +72,7 @@ const LandingPage = ({ politicieni, partidePolitice }) => {
         })}
       </div>
 
-      <SegmentedControl />
+      <SegmentedControl selectedParty={selectedParty} />
 
       <div className="politicieni">
         {maybeRenderEmptyList()}
