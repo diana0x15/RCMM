@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "./Profile.css";
 import Suspiciuni from "../components/Suspiciuni";
 import { getAge } from "../utils/utils";
+import Logo from "../components/Logo";
+import { Link } from "react-router-dom";
 
 // Some extra bottom padding is necessary on mobile.
 const BOTTOM_PADDING = 100;
@@ -150,6 +152,11 @@ export default function Profile({ profileInfo }) {
 
   return (
     <>
+      <div className="profilelogoWrapper">
+        <Link to={"/"}>
+          <Logo />
+        </Link>
+      </div>
       <div
         className="container"
         style={{
