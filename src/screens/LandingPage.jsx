@@ -77,13 +77,17 @@ const LandingPage = ({ politicieni, partidePolitice }) => {
       <div className="politicieni">
         {maybeRenderEmptyList()}
         {politiciansToShow.map((politician) => {
+          const partid = partidePolitice.find((p) => {
+            return p.documentId === politician.partid_politic.documentId;
+          });
+
           return (
             <Link
               className="politicianlink"
               key={politician.documentId}
               to={createRouteFromName(politician)}
             >
-              <PoliticianCard politician={politician} />
+              <PoliticianCard politician={politician} partid={partid} />
             </Link>
           );
         })}

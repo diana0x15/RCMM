@@ -153,8 +153,8 @@ export default function Profile({ profileInfo }) {
       <div
         className="container"
         style={{
-          "--image-url": `url(${getImageUrl()})`,
-          "--color-value": `${profileInfo.partid_politic.culoare}`,
+          "--profile-image-url": `url(${getImageUrl()})`,
+          "--profile-color-value": `${profileInfo.partid_politic.culoare}`,
         }}
       >
         <div id="image" className="image">

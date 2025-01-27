@@ -1,7 +1,7 @@
 :root {
   /* Dynamically set in JS. */
-  --image-url: "";
-  --color-value: "";
+  --profile-image-url: "";
+  --profile-color-value: "";
 }
 
 /* Desktop (Landscape) */
@@ -25,7 +25,7 @@
   }
 
   .image {
-    background-image: var(--image-url);
+    background-image: var(--profile-image-url);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -58,7 +58,7 @@
 /* Mobile (Portrait) */
 @media (max-width: 768px) {
   .image {
-    background-image: var(--image-url);
+    background-image: var(--profile-image-url);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -110,7 +110,7 @@
   background: linear-gradient(
     180deg,
     rgba(217, 217, 217, 0) 0%,
-    var(--color-value) 100%
+    var(--profile-color-value) 100%
   );
 }
 
